@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>135 Pines Bridge Road, Katonah NY | Buyer Folio</title>
+<script>document.documentElement.classList.add('has-js');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+  :root{
+    --ink:#1c2420; --cream:#faf7f1; --paper:#ffffff; --forest:#2e4636; --forest-lt:#4a6b55;
+    --brass:#a8842c; --brass-lt:#c9a955; --line:#e4ddce; --muted:#6b7268; --soft:#f2eee3;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--cream);line-height:1.65;font-size:16px}
+  h1,h2,h3,.serif{font-family:'Playfair Display',serif}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 32px}
+  section{padding:72px 0}
+  .kicker{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--brass);font-weight:600;margin-bottom:14px}
+  h2{font-size:40px;font-weight:600;line-height:1.15;margin-bottom:18px}
+  h3{font-size:22px;font-weight:600;margin-bottom:10px}
+  p.lede{font-size:19px;color:#3a4239;max-width:760px}
+  .divider{height:1px;background:var(--line);margin:0 auto;max-width:1080px}
+
+  /* HERO */
+  .hero{position:relative;min-height:92vh;display:flex;align-items:flex-end;color:#fff;overflow:hidden;background:var(--forest);padding:0}
+  .hero-media{position:absolute;left:0;right:0;top:-25%;height:150%;z-index:0;will-change:transform;
+    background:url('images/01-hero-bg.jpg') center/cover no-repeat}
+  .hero-media video{position:absolute;left:0;top:0;width:100%;height:100%;object-fit:cover}
+  .hero-media::after{content:'';position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(15,22,18,.25) 0%,rgba(15,22,18,.05) 40%,rgba(15,22,18,.82) 100%)}
+  .hero-inner{position:relative;z-index:2;width:100%;max-width:1080px;margin:0 auto;padding:60px 32px 56px}
+  .hero .kicker{color:var(--brass-lt)}
+  .hero h1{font-size:clamp(40px,6vw,72px);font-weight:700;line-height:1.05;margin-bottom:10px}
+  .hero .sub{font-size:19px;opacity:.92;margin-bottom:28px}
+  .badge{display:inline-block;background:var(--brass);color:#fff;font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;padding:6px 14px;border-radius:2px;margin-bottom:20px}
+  .statbar{display:flex;flex-wrap:wrap;gap:0;border-top:1px solid rgba(255,255,255,.35)}
+  .statbar div{padding:18px 36px 4px 0;margin-right:8px}
+  .statbar .n{font-family:'Playfair Display',serif;font-size:30px;font-weight:600}
+  .statbar .l{font-size:11px;letter-spacing:.16em;text-transform:uppercase;opacity:.75}
+
+  /* TLDR */
+  .tldr{background:var(--forest);color:#f4f1e8}
+  .tldr h2{color:#fff}
+  .tldr .kicker{color:var(--brass-lt)}
+  .tldr p{max-width:820px;font-size:17.5px;color:#e4e6dd}
+  .tldr .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:36px}
+  .tldr .card{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:6px;padding:22px}
+  .tldr .card h3{color:var(--brass-lt);font-size:17px;margin-bottom:8px}
+  .tldr .card p{font-size:14.5px;color:#d8dbd0}
+
+  /* FACT GRID */
+  .facts{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:36px}
+  .facts div{background:var(--paper);padding:18px 20px}
+  .facts .l{font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .facts .v{font-size:17px;font-weight:600;margin-top:3px}
+
+  /* GALLERY */
+  .gallery-head{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin-top:36px;flex-wrap:wrap}
+  .gallery-head .kicker{margin-bottom:0}
+  .gallery-head .count{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .gallery{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:196px;gap:12px;margin-top:16px}
+  .gallery figure{position:relative;margin:0;overflow:hidden;border-radius:6px;cursor:pointer;background:var(--soft)}
+  .gallery img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .75s cubic-bezier(.2,.8,.2,1)}
+  .gallery figure:hover img{transform:scale(1.06)}
+  .gallery figure:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,36,32,0) 55%,rgba(28,36,32,.6));opacity:0;transition:opacity .4s;pointer-events:none}
+  .gallery figure:hover:after{opacity:1}
+  .gallery .vcap{position:absolute;left:16px;right:16px;bottom:13px;z-index:2;color:#fff;font-size:12.5px;letter-spacing:.03em;opacity:0;transform:translateY(6px);transition:.4s}
+  .gallery figure:hover .vcap{opacity:1;transform:none}
+  .gallery .expand{position:absolute;top:12px;right:12px;z-index:2;width:34px;height:34px;border-radius:50%;background:rgba(250,247,241,.92);color:var(--forest);display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:300;line-height:1;opacity:0;transform:scale(.8);transition:.35s}
+  .gallery figure:hover .expand{opacity:1;transform:none}
+  .gallery .feature{grid-column:span 2;grid-row:span 2}
+  .caption{font-size:12.5px;color:var(--muted);margin-top:14px;font-style:italic}
+
+  /* LIGHTBOX */
+  .lb{position:fixed;inset:0;z-index:1000;background:rgba(11,16,13,.97);display:none;flex-direction:column;opacity:0;transition:opacity .35s ease}
+  .lb.open{display:flex;opacity:1}
+  .lb-top{display:flex;align-items:center;justify-content:space-between;padding:22px 30px}
+  .lb-idx{font-family:'Playfair Display',serif;font-size:16px;letter-spacing:.08em;color:#d9d6cb}
+  .lb-idx b{color:var(--brass-lt);font-weight:600}
+  .lb-close{background:none;border:1px solid rgba(255,255,255,.28);color:#e9e6dc;width:44px;height:44px;border-radius:50%;font-size:22px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.25s}
+  .lb-close:hover{background:rgba(255,255,255,.1);border-color:var(--brass-lt);color:#fff}
+  .lb-stage{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;position:relative;padding:0 26px}
+  .lb-img{max-width:min(1200px,92vw);max-height:76vh;object-fit:contain;border-radius:4px;box-shadow:0 30px 90px rgba(0,0,0,.55);opacity:0;transition:opacity .3s ease}
+  .lb-img.ready{opacity:1}
+  .lb-nav{position:absolute;top:50%;transform:translateY(-50%);width:56px;height:56px;border-radius:50%;background:rgba(250,247,241,.08);border:1px solid rgba(255,255,255,.25);color:#fff;font-size:26px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.25s;-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px)}
+  .lb-nav:hover{background:var(--brass);border-color:var(--brass)}
+  .lb-prev{left:28px}.lb-next{right:28px}
+  .lb-cap{color:#c8ccc0;text-align:center;font-size:14px;font-style:italic;padding:16px 24px 4px;min-height:22px}
+  .lb-film{display:flex;gap:10px;overflow-x:auto;justify-content:center;padding:12px 30px 26px;scrollbar-width:thin}
+  .lb-film img{flex:0 0 auto;height:58px;width:84px;object-fit:cover;border-radius:3px;opacity:.4;cursor:pointer;border:2px solid transparent;transition:.25s}
+  .lb-film img:hover{opacity:.75}
+  .lb-film img.active{opacity:1;border-color:var(--brass-lt)}
+
+  /* TABLES */
+  table{width:100%;border-collapse:collapse;background:var(--paper);font-size:14.5px;margin-top:24px}
+  th{background:var(--forest);color:#fff;text-align:left;padding:11px 14px;font-weight:600;font-size:13px;letter-spacing:.04em}
+  td{padding:11px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+  tr:nth-child(even) td{background:var(--soft)}
+  tr.hl td{background:#f3ecd8;font-weight:600}
+  .tiny{font-size:12.5px;color:var(--muted)}
+  .svc td:first-child{white-space:nowrap}
+  .ico{width:17px;height:17px;fill:none;stroke:var(--brass);stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round;vertical-align:-3px;margin-right:10px;flex:none}
+
+  /* CHART BLOCKS */
+  .chartrow{display:grid;grid-template-columns:1fr 1fr;gap:36px;margin-top:36px}
+  .chartcard{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:26px}
+  .chartcard h3{font-size:18px}
+  .chartcard .src{font-size:11.5px;color:var(--muted);margin-top:12px}
+  .chartcard canvas{margin-top:14px}
+  .full{grid-column:1/-1}
+
+  /* CALLOUTS */
+  .callout{border-left:4px solid var(--brass);background:var(--paper);padding:24px 28px;margin-top:32px;border-radius:0 6px 6px 0}
+  .callout h3{font-size:17px;color:var(--forest)}
+  .callout p{font-size:15px}
+  .bignum{font-family:'Playfair Display',serif;font-size:54px;font-weight:700;color:var(--forest);line-height:1}
+  .bignum small{font-size:16px;font-family:'Inter',sans-serif;font-weight:500;color:var(--muted);display:block;margin-top:6px;letter-spacing:.02em}
+  .numrow{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;margin-top:40px}
+  .sublabel{font-size:14px;font-family:'Inter',sans-serif;font-weight:500;color:var(--muted);display:block;margin-top:8px;line-height:1.4}
+
+  /* STORY */
+  .story{background:var(--paper)}
+  .twocol{display:grid;grid-template-columns:1.15fr .85fr;gap:48px;align-items:start;margin-top:8px}
+  .twocol img{width:100%;border-radius:6px}
+  .quote{font-family:'Playfair Display',serif;font-size:24px;font-style:italic;color:var(--forest);border-left:3px solid var(--brass);padding-left:22px;margin:28px 0}
+
+  .checklist li{margin:10px 0 10px 4px;padding-left:26px;position:relative;list-style:none;font-size:15px}
+  .checklist li:before{content:"→";position:absolute;left:0;color:var(--brass);font-weight:700}
+
+  footer{background:var(--ink);color:#9aa196;font-size:12.5px;padding:48px 0}
+  footer a{color:#c9a955;text-decoration:none}
+  footer .srcgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px 28px;margin-top:18px}
+
+  @media(max-width:820px){
+    .facts{grid-template-columns:repeat(2,1fr)}
+    .chartrow,.twocol,.tldr .grid3{grid-template-columns:1fr}
+    .gallery{grid-template-columns:1fr 1fr;grid-auto-rows:150px}
+    .gallery .feature{grid-column:span 2;grid-row:span 2}
+    .lb-nav{width:44px;height:44px;font-size:22px}
+    .lb-prev{left:12px}.lb-next{right:12px}
+    .lb-film img{height:46px;width:64px}
+    .numrow{grid-template-columns:repeat(2,1fr)}
+    h2{font-size:32px}
+  }
+  /* ===== SCROLL MOTION ===== */
+  #scrollbar{position:fixed;top:0;left:0;height:3px;width:100%;transform:scaleX(0);transform-origin:0 50%;
+    background:linear-gradient(90deg,var(--brass),var(--brass-lt));z-index:100;pointer-events:none;will-change:transform}
+
+  /* hero: staged entrance */
+  .has-js .hero .badge,.has-js .hero .kicker,.has-js .hero h1,.has-js .hero .sub,.has-js .hero .statbar{
+    opacity:0;transform:translateY(28px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+  .has-js .hero.in .badge{opacity:1;transform:none;transition-delay:.10s}
+  .has-js .hero.in .kicker{opacity:1;transform:none;transition-delay:.22s}
+  .has-js .hero.in h1{opacity:1;transform:none;transition-delay:.34s}
+  .has-js .hero.in .sub{opacity:1;transform:none;transition-delay:.46s}
+  .has-js .hero.in .statbar{opacity:1;transform:none;transition-delay:.58s}
+
+  /* section blocks: reveal on scroll */
+  .has-js .wrap > .kicker,.has-js .wrap > h2,.has-js .wrap > h3,.has-js .wrap > p,
+  .has-js .wrap > table,.has-js .wrap > .callout,.has-js .wrap > .caption,
+  .has-js .wrap > .gallery-head,.has-js .wrap > .twocol{
+    opacity:0;transform:translateY(26px);transition:opacity .7s cubic-bezier(.22,1,.36,1),transform .7s cubic-bezier(.22,1,.36,1)}
+  .has-js .wrap > .in{opacity:1;transform:none}
+
+  /* grids/galleries: sibling stagger */
+  .has-js .grid3 > *,.has-js .facts > *,.has-js .gallery > *,
+  .has-js .numrow > *,.has-js .chartrow > *,.has-js .checklist > *{
+    opacity:0;transform:translateY(22px);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1);
+    transition-delay:calc(var(--i,0) * 65ms)}
+  .has-js .grid3 > .in,.has-js .facts > .in,.has-js .gallery > .in,
+  .has-js .numrow > .in,.has-js .chartrow > .in,.has-js .checklist > .in{opacity:1;transform:none}
+
+  @media (prefers-reduced-motion:reduce){
+    .has-js .wrap > .kicker,.has-js .wrap > h2,.has-js .wrap > h3,.has-js .wrap > p,
+    .has-js .wrap > table,.has-js .wrap > .callout,.has-js .wrap > .caption,
+    .has-js .wrap > .gallery-head,.has-js .wrap > .twocol,
+    .has-js .grid3 > *,.has-js .facts > *,.has-js .gallery > *,
+    .has-js .numrow > *,.has-js .chartrow > *,.has-js .checklist > *,
+    .has-js .hero .badge,.has-js .hero .kicker,.has-js .hero h1,.has-js .hero .sub,.has-js .hero .statbar{
+      opacity:1!important;transform:none!important;transition:none!important}
+    .hero-media{transform:none!important}
+    .hero-media video{display:none}
+  }
+
+  @media print{
+    .hero{min-height:auto;padding:120px 0}
+    section{padding:36px 0;break-inside:avoid}
+    body{font-size:13px}
+    #scrollbar{display:none}
+    .hero-media video{display:none}
+    .has-js .wrap > *,.has-js .grid3 > *,.has-js .facts > *,.has-js .gallery > *,
+    .has-js .numrow > *,.has-js .chartrow > *,.has-js .checklist > *,
+    .has-js .hero .badge,.has-js .hero .kicker,.has-js .hero h1,.has-js .hero .sub,.has-js .hero .statbar{
+      opacity:1!important;transform:none!important}
+  }
+</style>
+</head>
+<body>
+<div id="scrollbar" aria-hidden="true"></div>
+
+<!-- ================= HERO ================= -->
+<div class="hero">
+  <div class="hero-media" aria-hidden="true">
+    <video autoplay muted loop playsinline poster="images/01-hero-bg.jpg">
+      <source src="images/hero-flyover-web.mp4" type="video/mp4">
+    </video>
+  </div>
+  <div class="hero-inner">
+    <span class="badge">Status: Pending &middot; Listed at $1,750,000</span>
+    <div class="kicker">A Private Buyer Folio</div>
+    <h1>135 Pines Bridge Road</h1>
+    <div class="sub serif">Katonah, New York 10536 &middot; Town of Somers, Westchester County</div>
+    <div class="statbar">
+      <div><div class="n">4</div><div class="l">Bedrooms</div></div>
+      <div><div class="n">5</div><div class="l">Bathrooms</div></div>
+      <div><div class="n">5,991</div><div class="l">Sq Ft Living</div></div>
+      <div><div class="n">1.87</div><div class="l">Acres</div></div>
+      <div><div class="n">3-Car</div><div class="l">Garage</div></div>
+      <div><div class="n">$25,434</div><div class="l">Taxes / Yr</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= TLDR ================= -->
+<section class="tldr">
+  <div class="wrap">
+    <div class="kicker">The Short Version</div>
+    <h2>Why this house, in three points</h2>
+    <p>A builder&rsquo;s personal residence is a specific kind of house: nobody cuts corners on their own home. This one pairs 6,000 square feet of custom craftsmanship with a rare tax profile for Westchester, a top-tier school district, and a location ten minutes from one of the most beloved small downtowns in the New York suburbs.</p>
+    <div class="grid3">
+      <div class="card"><h3>The craftsmanship premium</h3><p>Custom-built by the builder for himself: cathedral and beamed ceilings, natural woodwork, chef&rsquo;s kitchen, wet bar, and a bonus game room over the 3-car garage. At $292 per square foot, it prices well under the $386&ndash;$393/sq ft Somers average.</p></div>
+      <div class="card"><h3>The value math</h3><p>Effective property tax rate is roughly 1.45%, below the Westchester median of about 1.63%, in a county with the highest average tax bills in America ($18,386). Somers median income is $169,894, double the state median.</p></div>
+      <div class="card"><h3>The lifestyle</h3><p>Katonah PO address with Somers schools: an A-rated district with 10:1 ratios, an IB program, and top-15 NY athletics. Katonah village, Muscoot Farm, Caramoor, and the Metro-North Harlem Line are all within 12 minutes.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= THE HOME ================= -->
+<section>
+  <div class="wrap">
+    <div class="kicker">The Home</div>
+    <h2>Built by a builder, for the builder</h2>
+    <p class="lede">Completed as the builder&rsquo;s personal residence, this 5,991 sq ft colonial sits on 1.87 acres near the Muscoot Reservoir corridor. Custom woodworking runs throughout: beamed and cathedral ceilings, crown molding, built-ins, granite counters, and an open eat-in chef&rsquo;s kitchen designed for entertaining. Outside: an expansive deck and designed patio. Above the garage, a bonus game room.</p>
+
+    <div class="facts">
+      <div><div class="l">Style</div><div class="v">Colonial, 3 stories</div></div>
+      <div><div class="l">Year Built</div><div class="v">1968 (custom rebuild)</div></div>
+      <div><div class="l">Total Area</div><div class="v">6,653 sq ft</div></div>
+      <div><div class="l">Price / Sq Ft</div><div class="v">$292 (living area)</div></div>
+      <div><div class="l">Heat</div><div class="v">Hot water, radiant</div></div>
+      <div><div class="l">Cooling</div><div class="v">Central air</div></div>
+      <div><div class="l">Water</div><div class="v">Private well</div></div>
+      <div><div class="l">Sewer</div><div class="v">Septic tank</div></div>
+      <div><div class="l">Garage</div><div class="v">3-car, game room above</div></div>
+      <div><div class="l">Kitchen</div><div class="v">Chef&rsquo;s, high-end appliances</div></div>
+      <div><div class="l">Interior</div><div class="v">Wet bar, built-ins, foyer</div></div>
+      <div><div class="l">MLS</div><div class="v">OneKey #1006828</div></div>
+    </div>
+
+    <div class="gallery-head">
+      <div class="kicker">The Gallery</div>
+      <div class="count">9 Photographs &middot; Select any image to view full screen</div>
+    </div>
+    <div class="gallery" id="gallery">
+      <figure class="feature" data-full="images/02-tall.jpg" data-caption="135 Pines Bridge Road &mdash; exterior">
+        <img src="images/02-tall.jpg" alt="135 Pines Bridge Road exterior" loading="lazy">
+        <span class="expand">+</span><figcaption class="vcap">Exterior</figcaption>
+      </figure>
+      <figure data-full="images/03-interior.jpg" data-caption="Interior living space">
+        <img src="images/03-interior.jpg" alt="Interior" loading="lazy">
+        <span class="expand">+</span><figcaption class="vcap">Living space</figcaption>
+      </figure>
+      <figure data-full="images/04-interior.jpg" data-caption="Interior detail">
+        <img src="images/04-interior.jpg" alt="Interior" loading="lazy">
+        <span class="expand">+</span><figcaption class="vcap">Interior</figcaption>
+      </figure>
+      <figure data-full="images/05-interior.jpg" data-caption="Interior living space">
+        <img src="images/05-interior.jpg" alt="Interior" loading="lazy">
+        <span class="expand">+</span><figcaption class="vcap">Interior</figcaption>
+      </figure>
+      <figure data-full="images/06-interior.jpg" data-caption="Interior detail">
+        <img src="images/06-interior.jpg" alt="Interior" loading="lazy">
+        <span class="expand">+</span><figcaption class="vcap">Interior</figcaption>
+      </figure>
+      <figure data-full="images/07-interior.jpg" data-caption="Interior living space">
+        <img src="images/07-interior.jpg" alt="Interior" loading="lazy">
+        <span class="expand">+</span><figcaption class="vcap">Living space</figcaption>
+      </figure>
+      <figure data-full="images/08-interior.jpg" data-caption="Interior detail">
+        <img src="images/08-interior.jpg" alt="Interior" loading="lazy">
+        <span class="expand">+</span><figcaption class="vcap">Interior</figcaption>
+      </figure>
+      <figure data-full="images/09-photo.jpg" data-caption="Custom woodwork and light-filled living spaces">
+        <img src="images/09-photo.jpg" alt="Interior" loading="lazy">
+        <span class="expand">+</span><figcaption class="vcap">Custom woodwork</figcaption>
+      </figure>
+      <figure data-full="images/10-photo.jpg" data-caption="Custom woodwork and light-filled living spaces">
+        <img src="images/10-photo.jpg" alt="Interior" loading="lazy">
+        <span class="expand">+</span><figcaption class="vcap">Living space</figcaption>
+      </figure>
+    </div>
+    <div class="caption">Photography courtesy of the listing, Giner Real Estate Inc. (OneKey MLS #1006828).</div>
+
+    <div class="callout">
+      <h3>One address, two towns: read this first</h3>
+      <p>The house carries a Katonah post office address (10536) but sits in the <strong>Town of Somers</strong>. That is common here: the Katonah ZIP spans parts of Bedford, Somers, and Lewisboro. Practical meaning for a buyer: <strong>Somers schools, Somers taxes, Somers police</strong>, and Katonah&rsquo;s village, train station, and dining ten minutes away. You get Katonah&rsquo;s lifestyle with Somers&rsquo; services.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ================= SCHOOLS ================= -->
+<section>
+  <div class="wrap">
+    <div class="kicker">Schools</div>
+    <h2>An A-rated district with elite resources</h2>
+    <p class="lede">The home is zoned to Somers Central School District: Primrose Elementary (K&ndash;2), Somers Intermediate (3&ndash;5), Somers Middle (6&ndash;8), and Somers Senior High. Every school is inside a 15-minute drive. Niche grades the district an A overall (#113 of 596 NY districts) and #13 in New York for athletics; Somers High is one of the few area schools offering the IB Diploma Programme alongside AP.</p>
+
+    <div class="numrow">
+      <div><div class="bignum">98%</div><small class="sublabel">Graduation rate, Somers Senior HS (US News)</small></div>
+      <div><div class="bignum">10:1</div><small class="sublabel">Student-teacher ratio (national avg 16:1)</small></div>
+      <div><div class="bignum">$39.9k</div><small class="sublabel">Spending per pupil (national avg $17.8k)</small></div>
+      <div><div class="bignum">1270</div><small class="sublabel">Average SAT (self-reported, Niche)</small></div>
+    </div>
+
+    <div class="chartrow">
+      <div class="chartcard full">
+        <h3>How Somers compares: US News New York high school rank (lower is better)</h3>
+        <canvas id="schoolChart" height="120"></canvas>
+        <div class="src">Sources: US News Best High Schools 2024&ndash;2026 editions; Niche 2026. Somers Senior HS ranks in the top ~15% of US high schools (#1,772 nationally).</div>
+      </div>
+    </div>
+
+    <table>
+      <tr><th>District (High School)</th><th>Niche Grade</th><th>US News NY Rank</th><th>Notes</th></tr>
+      <tr><td><svg class="ico" viewBox="0 0 24 24"><path d="M2 9l10-4 10 4-10 4z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/><line x1="22" y1="9" x2="22" y2="14"/></svg>Chappaqua (Horace Greeley HS)</td><td>A+</td><td>~#25</td><td>Regional gold standard</td></tr>
+      <tr><td><svg class="ico" viewBox="0 0 24 24"><path d="M2 9l10-4 10 4-10 4z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/><line x1="22" y1="9" x2="22" y2="14"/></svg>Byram Hills</td><td>A+</td><td>#28</td><td>10:1 ratio</td></tr>
+      <tr><td><svg class="ico" viewBox="0 0 24 24"><path d="M2 9l10-4 10 4-10 4z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/><line x1="22" y1="9" x2="22" y2="14"/></svg>Katonah-Lewisboro (John Jay HS)</td><td>A+</td><td>#55</td><td>SAT 1330, $39.2k/pupil</td></tr>
+      <tr><td><svg class="ico" viewBox="0 0 24 24"><path d="M2 9l10-4 10 4-10 4z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/><line x1="22" y1="9" x2="22" y2="14"/></svg>Bedford Central (Fox Lane HS)</td><td>A</td><td>#81</td><td>10:1 ratio</td></tr>
+      <tr><td><svg class="ico" viewBox="0 0 24 24"><path d="M2 9l10-4 10 4-10 4z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/><line x1="22" y1="9" x2="22" y2="14"/></svg>Yorktown</td><td>A+</td><td>#97</td><td>Larger district (3,546 students)</td></tr>
+      <tr class="hl"><td><svg class="ico" viewBox="0 0 24 24"><path d="M2 9l10-4 10 4-10 4z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/><line x1="22" y1="9" x2="22" y2="14"/></svg>Somers Central (Somers Senior HS)</td><td>A</td><td>#170</td><td>98% grad, IB program, #13 NY athletics</td></tr>
+      <tr><td><svg class="ico" viewBox="0 0 24 24"><path d="M2 9l10-4 10 4-10 4z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/><line x1="22" y1="9" x2="22" y2="14"/></svg>Mahopac (Putnam Cty)</td><td>B+</td><td>#398</td><td>Across county line</td></tr>
+    </table>
+    <p class="tiny" style="margin-top:10px">Honest read: Somers is a strong A district with elite per-pupil resources and athletics, one ranking tier below immediate neighbors Chappaqua, Byram Hills, and Katonah-Lewisboro on pure academics. Reading proficiency 93%, math 85%, AP participation 53% at the high school.</p>
+
+    <table>
+      <tr><th>Assigned / Nearby School</th><th>Address</th><th>Drive</th></tr>
+      <tr><td><svg class="ico" viewBox="0 0 24 24"><path d="M2 9l10-4 10 4-10 4z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/><line x1="22" y1="9" x2="22" y2="14"/></svg>Primrose Elementary (K&ndash;2)</td><td>110 Primrose St, Lincolndale</td><td>~10 min</td></tr>
+      <tr><td><svg class="ico" viewBox="0 0 24 24"><path d="M2 9l10-4 10 4-10 4z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/><line x1="22" y1="9" x2="22" y2="14"/></svg>Somers Intermediate (3&ndash;5)</td><td>240 Route 202, Somers</td><td>~10&ndash;12 min</td></tr>
+      <tr><td><svg class="ico" viewBox="0 0 24 24"><path d="M2 9l10-4 10 4-10 4z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/><line x1="22" y1="9" x2="22" y2="14"/></svg>Somers Middle (6&ndash;8)</td><td>250 Route 202, Somers</td><td>~10&ndash;12 min</td></tr>
+      <tr><td><svg class="ico" viewBox="0 0 24 24"><path d="M2 9l10-4 10 4-10 4z"/><path d="M6 11v5c3 2 9 2 12 0v-5"/><line x1="22" y1="9" x2="22" y2="14"/></svg>Somers Senior High (9&ndash;12)</td><td>120 Primrose St, Lincolndale</td><td>~10 min</td></tr>
+      <tr><td><svg class="ico" viewBox="0 0 24 24"><path d="M6 21V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v17"/><line x1="4" y1="21" x2="20" y2="21"/><line x1="9" y1="7" x2="15" y2="7"/><line x1="9" y1="11" x2="15" y2="11"/><line x1="9" y1="15" x2="15" y2="15"/></svg>Kennedy Catholic Prep (private, A-)</td><td>54 Route 138, Somers</td><td>~12&ndash;15 min &middot; $23,652/yr</td></tr>
+      <tr><td><svg class="ico" viewBox="0 0 24 24"><path d="M6 21V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v17"/><line x1="4" y1="21" x2="20" y2="21"/><line x1="9" y1="7" x2="15" y2="7"/><line x1="9" y1="11" x2="15" y2="11"/><line x1="9" y1="15" x2="15" y2="15"/></svg>The Harvey School (private, B+)</td><td>260 Jay St, Katonah</td><td>~12&ndash;14 min &middot; ~$55,790/yr</td></tr>
+    </table>
+    <p class="tiny" style="margin-top:10px">May 2025: voters passed the $113.5M budget and a $63.9M tax-neutral capital bond by nearly 2:1, a signal of sustained community investment in the schools. Drive times are estimates; confirm district assignment with the Somers assessor as standard diligence.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+<!-- ================= ECONOMICS & TAXES ================= -->
+<section class="story">
+  <div class="wrap">
+    <div class="kicker">Economics &amp; Taxes</div>
+    <h2>High-income town, below-median tax rate</h2>
+    <p class="lede">Westchester carries the highest average property tax bills in America ($18,386 in 2025, per ATTOM). That makes the tax profile of any individual house a first-order question. This one clears it: $25,434 on a $1.75M list price is an effective rate of about 1.45%, under the county median of roughly 1.63% and in line with the New York State average.</p>
+
+    <div class="chartrow">
+      <div class="chartcard">
+        <h3>Median household income</h3>
+        <canvas id="incomeChart"></canvas>
+        <div class="src">ACS 2020&ndash;2024 5-year estimates (Census Reporter). Katonah figure is the hamlet CDP.</div>
+      </div>
+      <div class="chartcard">
+        <h3>Effective property tax rate</h3>
+        <canvas id="taxChart"></canvas>
+        <div class="src">This home: computed from listing ($25,434 / $1,750,000). County/state/US: ATTOM, tax-rates.org, SmartAsset, Ownwell (2025).</div>
+      </div>
+      <div class="chartcard">
+        <h3>Adults with a bachelor&rsquo;s degree or higher</h3>
+        <canvas id="eduChart"></canvas>
+        <div class="src">ACS 2020&ndash;2024 (Census Reporter). Somers is nearly double the US rate; Katonah hamlet higher still.</div>
+      </div>
+      <div class="chartcard">
+        <h3>Local market snapshot (2026)</h3>
+        <canvas id="marketChart"></canvas>
+        <div class="src">Redfin / RealtyTrac. ZIP 10536 median sale ~$1.18&ndash;1.2M; Somers town median (~$650K) is pulled down by the Heritage Hills 55+ condos, so single-family stock trades well above it.</div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <h3>What the numbers say together</h3>
+      <p>Somers households earn about $169,894 at the median, roughly 1.4x the county and 2x the state, with a 4.2% poverty rate and 89% owner-occupancy. Pair that with a below-county-median tax rate on this house and a price per square foot ($292) under the Somers listing average ($386&ndash;$393), and the buyer case is: premium demographics, discount entry.</p>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ================= PEOPLE ================= -->
+<section>
+  <div class="wrap">
+    <div class="kicker">The People</div>
+    <h2>Who lives here, and what they do</h2>
+    <p class="lede">Somers is 21,264 people across a town of six hamlets. It skews educated, established, and stable: 92.6% of residents lived in the same house a year ago. The median age of 49.5 is lifted by Heritage Hills, a large 55+ condo community; the school-age population is a healthy 20%.</p>
+
+    <div class="chartrow">
+      <div class="chartcard">
+        <h3>Race and ethnicity, Town of Somers</h3>
+        <canvas id="raceChart"></canvas>
+        <div class="src">Census QuickFacts (2020&ndash;2024). Hispanic origin overlaps race categories; shown as reported.</div>
+      </div>
+      <div class="chartcard">
+        <h3>Age distribution</h3>
+        <canvas id="ageChart"></canvas>
+        <div class="src">Census QuickFacts / ACS. The 65+ share reflects Heritage Hills; families with children cluster in the single-family neighborhoods.</div>
+      </div>
+      <div class="chartcard full">
+        <h3>What residents do: top industries</h3>
+        <canvas id="jobsChart" height="110"></canvas>
+        <div class="src">ACS via city-data. Management is the single largest occupation group; about 29% of employed Westchester residents commute into NYC.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ================= COMMUTE ================= -->
+<section class="story">
+  <div class="wrap">
+    <div class="kicker">Getting Around</div>
+    <h2>The commute, honestly</h2>
+    <p class="lede">Two Metro-North Harlem Line stations serve the house: Katonah (6.2 miles, ~12 minutes) and Goldens Bridge (8.7 miles). Peak expresses run Katonah to Grand Central in about an hour; typical trips are 1:07&ndash;1:17. Driving to Midtown is 43 miles via I-684 and the Saw Mill: about 70 minutes clear, 80&ndash;100+ at rush hour.</p>
+
+    <div class="numrow">
+      <div><div class="bignum">12<span style="font-size:22px"> min</span></div><small class="sublabel">To Katonah station &amp; I-684 Exit 6</small></div>
+      <div><div class="bignum">~60<span style="font-size:22px"> min</span></div><small class="sublabel">Peak express, Katonah to Grand Central</small></div>
+      <div><div class="bignum">$374.75</div><small class="sublabel">Monthly rail pass, Zone 6 (2026)</small></div>
+      <div><div class="bignum">31<span style="font-size:22px"> min</span></div><small class="sublabel">To Westchester County Airport (HPN)</small></div>
+    </div>
+
+    <table>
+      <tr><th>Destination</th><th>Distance</th><th>Time (no traffic)</th><th>Notes</th></tr>
+      <tr><td><svg class="ico" viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="12" rx="2"/><line x1="5" y1="11" x2="19" y2="11"/><circle cx="8.5" cy="13.5" r=".6"/><circle cx="15.5" cy="13.5" r=".6"/><line x1="8" y1="16" x2="6" y2="20"/><line x1="16" y1="16" x2="18" y2="20"/></svg>Katonah Metro-North station</td><td>6.2 mi</td><td>~12 min</td><td>Daily parking $10; non-Bedford-resident annual permit $1,341 (Lot 3)</td></tr>
+      <tr><td><svg class="ico" viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="12" rx="2"/><line x1="5" y1="11" x2="19" y2="11"/><circle cx="8.5" cy="13.5" r=".6"/><circle cx="15.5" cy="13.5" r=".6"/><line x1="8" y1="16" x2="6" y2="20"/><line x1="16" y1="16" x2="18" y2="20"/></svg>Goldens Bridge station</td><td>8.7 mi</td><td>~17 min</td><td>Annual permit $460.64 (waitlist); meters $6.75/day, open to all</td></tr>
+      <tr><td><svg class="ico" viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="12" rx="2"/><line x1="5" y1="11" x2="19" y2="11"/><circle cx="8.5" cy="13.5" r=".6"/><circle cx="15.5" cy="13.5" r=".6"/><line x1="8" y1="16" x2="6" y2="20"/><line x1="16" y1="16" x2="18" y2="20"/></svg>Grand Central Terminal (rail)</td><td>Zone 6</td><td>~60&ndash;77 min</td><td>Peak one-way $19.00, off-peak $14.00 (2026 fares)</td></tr>
+      <tr><td><svg class="ico" viewBox="0 0 24 24"><path d="M19 17h2l-1.4-5A2 2 0 0 0 17.7 10H6.3a2 2 0 0 0-1.9 1.4L3 17h2"/><circle cx="7" cy="17" r="2"/><circle cx="17" cy="17" r="2"/><line x1="9" y1="17" x2="15" y2="17"/></svg>Midtown Manhattan (drive)</td><td>43.1 mi</td><td>~69 min</td><td>80&ndash;100+ min at peak via I-684 / Saw Mill</td></tr>
+      <tr><td><svg class="ico" viewBox="0 0 24 24"><path d="M17.8 19.2 16 11l3.5-3.5a2.12 2.12 0 0 0-3-3L13 8 4.8 6.2a1 1 0 0 0-.9 1.7L9 11l-2 3-3-1v2l4 2 2 4h2l-1-3 3-2 3.1 5.1a1 1 0 0 0 1.7-.9z"/></svg>Westchester County Airport (HPN)</td><td>20.6 mi</td><td>~31 min</td><td>Nonstops to major hubs</td></tr>
+      <tr><td><svg class="ico" viewBox="0 0 24 24"><path d="M17.8 19.2 16 11l3.5-3.5a2.12 2.12 0 0 0-3-3L13 8 4.8 6.2a1 1 0 0 0-.9 1.7L9 11l-2 3-3-1v2l4 2 2 4h2l-1-3 3-2 3.1 5.1a1 1 0 0 0 1.7-.9z"/></svg>LaGuardia / JFK</td><td>43.1 / 51.2 mi</td><td>~69 / ~80 min</td><td>Free-flow times; add for traffic</td></tr>
+    </table>
+    <p class="tiny" style="margin-top:10px">Commuter tip: the Goldens Bridge lot is the cheaper rail-parking play; Katonah&rsquo;s lots prioritize Bedford residents.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ================= SERVICES & SAFETY ================= -->
+<section>
+  <div class="wrap">
+    <div class="kicker">Services, Safety &amp; Utilities</div>
+    <h2>Quietly well-covered</h2>
+    <p class="lede">Somers runs its own 22-officer police department (est. 1965), backed by the State Police barracks on Route 100 about three miles from the house, with county police on the parkways. The result shows in the data: Somers is safer than 97% of US communities on total crime.</p>
+
+    <div class="chartrow">
+      <div class="chartcard">
+        <h3>Safety percentile (higher is safer)</h3>
+        <canvas id="crimeChart"></canvas>
+        <div class="src">CrimeGrade (4.72 crimes/1,000/yr, 97th percentile); NeighborhoodScout (safer than 85% of US, 90% of NY; violent-crime odds 1 in 3,613).</div>
+      </div>
+      <div class="chartcard">
+        <h3>Residential electricity, cents/kWh</h3>
+        <canvas id="elecChart"></canvas>
+        <div class="src">EnergySage (Westchester, May 2026), NYSEG rate-case reporting, EIA. Somers is NYSEG territory, cheaper than Con Ed but well above US average.</div>
+      </div>
+    </div>
+
+    <table class="svc">
+      <tr><th>Service</th><th>The facts</th></tr>
+      <tr><td><svg class="ico" viewBox="0 0 24 24"><path d="M3 21V8l9-5 9 5v13"/><path d="M3 21h18"/><line x1="12" y1="10" x2="12" y2="16"/><line x1="9" y1="13" x2="15" y2="13"/></svg>Hospital (nearest)</td><td>Northern Westchester Hospital, Mount Kisco (Northwell): 9.8 mi, ~21 min. 245 beds, all private rooms.</td></tr>
+      <tr><td><svg class="ico" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>Trauma center</td><td>Westchester Medical Center, Valhalla: 15.5 mi, ~27 min. Level I adult and pediatric trauma.</td></tr>
+      <tr><td><svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>Urgent care</td><td>Optum Katonah campus, 111 Bedford Rd: ~5 min from the house.</td></tr>
+      <tr><td><svg class="ico" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>Police</td><td>Somers PD (22 officers) + NY State Police Somers barracks (~3 mi) + Westchester County PD. 911 dispatched via NYSP Hawthorne.</td></tr>
+      <tr><td><svg class="ico" viewBox="0 0 24 24"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>Fire / EMS</td><td>Somers Volunteer FD: ~135 volunteers, 4 stations; HQ is on Route 139, the same road as the house. 3,000+ calls handled in 2025.</td></tr>
+      <tr><td><svg class="ico" viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>Electric</td><td>NYSEG (not Con Ed), with Westchester Power community-choice supply. Budget ~29&ndash;31&cent;/kWh all-in.</td></tr>
+      <tr><td><svg class="ico" viewBox="0 0 24 24"><path d="M14 14.76V3.5a2.5 2.5 0 0 0-5 0v11.26a4.5 4.5 0 1 0 5 0z"/></svg>Heating fuel</td><td>Listing shows a gas range on a well/septic rural road: almost certainly propane. Verify tank ownership/lease; Con Ed is the area&rsquo;s only gas utility and mains are sparse here.</td></tr>
+      <tr><td><svg class="ico" viewBox="0 0 24 24"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>Water / sewer</td><td>Private well and septic, standard for this part of Somers. Westchester law requires a well water test at every sale (~$425&ndash;$583). Septic pump-out every 3&ndash;5 years, ~$300&ndash;$500.</td></tr>
+      <tr><td><svg class="ico" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>Trash</td><td>No municipal pickup; licensed private carters run $30&ndash;$80/month (WIN Waste transfer station is on Route 100 in Somers).</td></tr>
+      <tr><td><svg class="ico" viewBox="0 0 24 24"><path d="M5 12.55a11 11 0 0 1 14.08 0"/><path d="M1.42 9a16 16 0 0 1 21.16 0"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>Internet</td><td>Verizon Fios ~92% availability in Katonah (up to 2 Gbps symmetrical); Optimum ~49%. Confirm at the address.</td></tr>
+      <tr><td><svg class="ico" viewBox="0 0 24 24"><line x1="6" y1="20" x2="6" y2="14"/><line x1="12" y1="20" x2="12" y2="8"/><line x1="18" y1="20" x2="18" y2="4"/></svg>Cell coverage</td><td>AT&amp;T ~99.9% county coverage; Verizon 5G 98.6% and rated best overall; T-Mobile weakest (~77&ndash;83%). Hilly northern Westchester has localized dead spots; run a carrier check at the address.</td></tr>
+    </table>
+
+    <div class="chartrow">
+      <div class="chartcard">
+        <h3>Climate: monthly highs and lows (&deg;F)</h3>
+        <canvas id="tempChart"></canvas>
+        <div class="src">WeatherSpark, Katonah NY. Four real seasons: July highs ~83&deg;F, January lows ~21&deg;F.</div>
+      </div>
+      <div class="chartcard">
+        <h3>Precipitation &amp; snow vs US average</h3>
+        <canvas id="wxChart"></canvas>
+        <div class="src">BestPlaces / MyPerfectWeather. ~2,554 sunshine hours a year; expect a real winter (~38" of snow) and green summers.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ================= THE STORY ================= -->
+<section class="story">
+  <div class="wrap">
+    <div class="kicker">The Story</div>
+    <h2>A village that moved itself, and the town that invented the circus</h2>
+    <div class="twocol">
+      <div>
+        <p>In 1893 the New York Times headline read &ldquo;Destruction to Katonah.&rdquo; New York City had condemned the village to flood the valley for its Croton reservoir system. The residents voted not to scatter but to move: some 55 homes, stores, and a church were hauled to higher ground on soaped rails and log rollers, families sometimes living inside en route. The relocated village was laid out by the Olmsted firm with deed rules separating commerce from homes, proto-zoning two decades before New York had a zoning law. That planned village is today&rsquo;s Katonah Village Historic District of Victorian &ldquo;painted ladies,&rdquo; on the National Register since 1983.</p>
+        <p style="margin-top:14px">Somers has its own claim to fame: the cradle of the American circus. Around 1805, farmer Hachaliah Bailey brought an elephant named Old Bet to town, and the crowds she drew turned a farm animal into a touring business that seeded the American traveling menagerie. Bailey&rsquo;s Elephant Hotel (1820s) still anchors the crossroads of Routes 100 and 202, a National Historic Landmark that now serves as Town Hall and houses the Museum of the Early American Circus.</p>
+        <div class="quote">One Katonah dirt road is home to &ldquo;a touring jazz guitarist, an Academy Award-winning animator, the lighting designer for the New York City Ballet... and the puppeteer behind Ernie on Sesame Street.&rdquo;<br><span style="font-size:14px;font-style:normal;color:var(--muted)">&mdash; Upstate House</span></div>
+        <p>The neighbors match the setting. Martha Stewart farms the 150-acre Cantitoe Corners estate in Katonah. George Soros keeps an estate here. Stanley Tucci grew up in town; Garry Trudeau went to the Harvey School; former US Poet Laureate Billy Collins leads the Katonah Poetry Series at the Village Library. Ralph Lauren and Richard Gere (co-owner of the Bedford Post Inn) are one town over in Bedford; Blake Lively and Ryan Reynolds are nearby in Pound Ridge. Two more National Historic Landmarks sit in the hamlet: John Jay&rsquo;s homestead and Stepping Stones, the home of AA cofounders Bill and Lois Wilson.</p>
+      </div>
+      <div>
+        <img src="images/09-photo.jpg" alt="135 Pines Bridge Road">
+        <img src="images/10-photo.jpg" alt="135 Pines Bridge Road" style="margin-top:14px">
+        <div class="caption">Custom woodwork and light-filled living spaces, from the listing gallery.</div>
+      </div>
+    </div>
+
+    <h3 style="margin-top:48px;font-size:24px">Downtown, or not: you get both</h3>
+    <p style="max-width:820px;margin-top:8px">Katonah hamlet, ten minutes away, is the walkable rail-town downtown: nearly every storefront on Katonah Avenue is independently owned, anchored by the Katonah Museum of Art, the Village Library, the 138-year-old Kelloggs &amp; Lawrence hardware store, and Caramoor, the 90-acre estate whose summer music festival has run since 1945. Somers itself has no traditional downtown; shopping concentrates at Somers Commons, and the civic heart is the Elephant Hotel. Farmers markets run Saturdays at the John Jay Homestead and Sundays at Muscoot Farm, which is effectively next door to this house.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ================= EAT & PLAY ================= -->
+<section>
+  <div class="wrap">
+    <div class="kicker">Eat &amp; Play</div>
+    <h2>Where the locals actually go</h2>
+
+    <table>
+      <tr><th>Restaurant</th><th>Where</th><th>What it is</th><th>Rating</th><th>Price</th></tr>
+      <tr class="hl"><td><svg class="ico" viewBox="0 0 24 24"><path d="M6 3v5.5a1.5 1.5 0 0 0 3 0V3"/><line x1="7.5" y1="8.5" x2="7.5" y2="21"/><path d="M17 21V3c-2 0-3 2.2-3 5s1 4 3 4"/></svg>Muscoot Tavern</td><td>Rt 100 &amp; 35 (closest to house)</td><td>Century-old tavern, thin-crust pizza</td><td>4.2 (Restaurant Guru)</td><td>$$</td></tr>
+      <tr><td><svg class="ico" viewBox="0 0 24 24"><path d="M6 3v5.5a1.5 1.5 0 0 0 3 0V3"/><line x1="7.5" y1="8.5" x2="7.5" y2="21"/><path d="M17 21V3c-2 0-3 2.2-3 5s1 4 3 4"/></svg>The Whitlock</td><td>Katonah Ave</td><td>Farm-to-table New American, Michelin Guide-listed</td><td>4.4&ndash;4.5 (Tripadvisor)</td><td>$$$</td></tr>
+      <tr><td><svg class="ico" viewBox="0 0 24 24"><path d="M6 3v5.5a1.5 1.5 0 0 0 3 0V3"/><line x1="7.5" y1="8.5" x2="7.5" y2="21"/><path d="M17 21V3c-2 0-3 2.2-3 5s1 4 3 4"/></svg>Blue Dolphin Ristorante</td><td>Katonah Ave</td><td>Italian in a retro diner car; &ldquo;Best Iconic Restaurant 2025&rdquo;</td><td>Local icon (Yelp 172 rev.)</td><td>$$</td></tr>
+      <tr><td><svg class="ico" viewBox="0 0 24 24"><path d="M6 3v5.5a1.5 1.5 0 0 0 3 0V3"/><line x1="7.5" y1="8.5" x2="7.5" y2="21"/><path d="M17 21V3c-2 0-3 2.2-3 5s1 4 3 4"/></svg>Le Fontane</td><td>Rt 100, Katonah/Somers</td><td>Family Italian since 1981</td><td>Yelp favorite</td><td>$$$</td></tr>
+      <tr><td><svg class="ico" viewBox="0 0 24 24"><path d="M6 3v5.5a1.5 1.5 0 0 0 3 0V3"/><line x1="7.5" y1="8.5" x2="7.5" y2="21"/><path d="M17 21V3c-2 0-3 2.2-3 5s1 4 3 4"/></svg>Peppino&rsquo;s Ristorante</td><td>Katonah Ave</td><td>Classic Italian in the old train station</td><td>4.0 (Tripadvisor)</td><td>$$</td></tr>
+      <tr><td><svg class="ico" viewBox="0 0 24 24"><path d="M6 3v5.5a1.5 1.5 0 0 0 3 0V3"/><line x1="7.5" y1="8.5" x2="7.5" y2="21"/><path d="M17 21V3c-2 0-3 2.2-3 5s1 4 3 4"/></svg>Purdy&rsquo;s Farmer &amp; the Fish</td><td>North Salem</td><td>Seafood beside its own 4-acre farm, Michelin Guide-listed</td><td>Michelin Guide</td><td>$$$</td></tr>
+      <tr><td><svg class="ico" viewBox="0 0 24 24"><path d="M6 3v5.5a1.5 1.5 0 0 0 3 0V3"/><line x1="7.5" y1="8.5" x2="7.5" y2="21"/><path d="M17 21V3c-2 0-3 2.2-3 5s1 4 3 4"/></svg>The Blazer Pub</td><td>Purdys</td><td>Legendary burgers since the 1970s</td><td>Cult following (361 Yelp rev.)</td><td>$</td></tr>
+      <tr><td><svg class="ico" viewBox="0 0 24 24"><path d="M6 3v5.5a1.5 1.5 0 0 0 3 0V3"/><line x1="7.5" y1="8.5" x2="7.5" y2="21"/><path d="M17 21V3c-2 0-3 2.2-3 5s1 4 3 4"/></svg>Il Forno</td><td>Somers</td><td>20-year Italian staple</td><td>Yelp favorite</td><td>$$</td></tr>
+      <tr><td><svg class="ico" viewBox="0 0 24 24"><path d="M6 3v5.5a1.5 1.5 0 0 0 3 0V3"/><line x1="7.5" y1="8.5" x2="7.5" y2="21"/><path d="M17 21V3c-2 0-3 2.2-3 5s1 4 3 4"/></svg>Bedford Post, The Barn</td><td>Bedford</td><td>Relais &amp; Ch&acirc;teaux inn co-owned by Richard Gere</td><td>Destination dining</td><td>$$$$</td></tr>
+      <tr><td><svg class="ico" viewBox="0 0 24 24"><path d="M6 3v5.5a1.5 1.5 0 0 0 3 0V3"/><line x1="7.5" y1="8.5" x2="7.5" y2="21"/><path d="M17 21V3c-2 0-3 2.2-3 5s1 4 3 4"/></svg>Village Social</td><td>Mount Kisco</td><td>New American, #1 of 53 in Mt Kisco</td><td>4.1 (Tripadvisor)</td><td>$$$</td></tr>
+      <tr><td><svg class="ico" viewBox="0 0 24 24"><path d="M6 3v5.5a1.5 1.5 0 0 0 3 0V3"/><line x1="7.5" y1="8.5" x2="7.5" y2="21"/><path d="M17 21V3c-2 0-3 2.2-3 5s1 4 3 4"/></svg>Katonah Reading Room</td><td>Katonah</td><td>Caf&eacute;-bookshop in the hamlet&rsquo;s first library building</td><td>Local favorite</td><td>$</td></tr>
+    </table>
+    <p class="tiny" style="margin-top:10px">Ratings from Tripadvisor, Yelp, and Restaurant Guru as of mid-2026; all venues showed current activity at research time.</p>
+
+    <h3 style="margin-top:44px;font-size:24px">Out the front door</h3>
+    <ul class="checklist" style="margin-top:8px;max-width:820px">
+      <li><strong>Muscoot Farm</strong>: a county-run 1900s interpretive farm minutes away. Animals, hayrides, kids&rsquo; programs, and a 25-vendor Sunday farmers market.</li>
+      <li><strong>Angle Fly Preserve</strong>: 654 acres and ~10 miles of trails, named for Westchester&rsquo;s last natural brook-trout spawning stream.</li>
+      <li><strong>Lasdon Park &amp; Arboretum</strong>: the county arboretum on Route 35, with gardens, walking tours, and seasonal shows.</li>
+      <li><strong>Reservoir fishing</strong>: Amawalk and Muscoot reservoirs are stocked trout and bass water (free NYC DEP permit).</li>
+      <li><strong>North County Trailway</strong>: 22 paved miles of rail-trail for riding and running, northern end in Somers.</li>
+      <li><strong>Ward Pound Ridge Reservation</strong>: Westchester&rsquo;s largest park, 4,315 acres, 15 minutes east.</li>
+      <li><strong>Golf</strong>: Somers National Golf Club, a Geoffrey Cornish 18 at one of the county&rsquo;s highest points.</li>
+      <li><strong>Caramoor</strong>: a summer of world-class music in the Venetian Theater, 15 minutes away.</li>
+    </ul>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ================= DILIGENCE ================= -->
+<section class="story">
+  <div class="wrap">
+    <div class="kicker">Straight Talk</div>
+    <h2>What a careful buyer verifies</h2>
+    <p class="lede">Every house has tradeoffs. Here are this one&rsquo;s, and the checks to run before contract.</p>
+    <ul class="checklist" style="margin-top:20px;max-width:860px">
+      <li><strong>Status is Pending.</strong> The listing went pending in mid-2026; confirm availability or backup-offer position with the listing agent first.</li>
+      <li><strong>Well and septic.</strong> Normal for the area, but budget for it: Westchester law requires a well test at sale (~$425&ndash;$583), and septic wants a pump-out every 3&ndash;5 years (~$300&ndash;$500). Ask for the septic&rsquo;s age, location, and last service.</li>
+      <li><strong>Heating fuel.</strong> The gas range on a rural well/septic road almost certainly means propane. Verify tank ownership vs lease and annual fuel costs; radiant hot-water heat is comfortable but fuel-fed.</li>
+      <li><strong>Electricity costs.</strong> NYSEG territory runs ~29&ndash;31&cent;/kWh all-in, roughly 60% above the US average. Ask for 12 months of utility bills on a 6,000 sq ft house.</li>
+      <li><strong>Schools tier.</strong> Somers is a strong A district with elite resources and athletics; if a top-25 NY academic ranking is the hard requirement, that is Chappaqua or Katonah-Lewisboro territory at a housing premium.</li>
+      <li><strong>Commute reality.</strong> Rail parking at Katonah favors Bedford residents ($1,341/yr for others); plan on the Goldens Bridge lot or daily meters. Drive times quoted are traffic-free.</li>
+      <li><strong>Cell signal.</strong> Coverage is strong on paper, but hilly northern Westchester has dead spots; test all household carriers at the house during a showing.</li>
+      <li><strong>Road position.</strong> Pines Bridge Road (Route 139) is a through road; walk the 1.87 acres to judge setback, buffer, and road noise at commute hour.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= LIGHTBOX ================= -->
+<div class="lb" id="lb" aria-hidden="true" role="dialog" aria-label="Photo viewer">
+  <div class="lb-top">
+    <div class="lb-idx" id="lbIdx"></div>
+    <button class="lb-close" id="lbClose" aria-label="Close viewer">&times;</button>
+  </div>
+  <div class="lb-stage">
+    <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous photo">&#8249;</button>
+    <img class="lb-img" id="lbImg" src="" alt="Property photograph">
+    <button class="lb-nav lb-next" id="lbNext" aria-label="Next photo">&#8250;</button>
+  </div>
+  <div class="lb-cap" id="lbCap"></div>
+  <div class="lb-film" id="lbFilm"></div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <strong style="color:#d8dbd0">Sources &amp; Disclaimer</strong>
+    <p style="margin-top:10px">Prepared July 2026 from public sources. Listing data: Giner Real Estate Inc. / OneKey MLS #1006828 (status Pending as of June 2026). All figures should be independently verified before purchase; drive times are traffic-free estimates. This folio is informational and is not an appraisal, inspection, or offer of brokerage services.</p>
+    <div class="srcgrid">
+      <a href="https://ginerrealty.com/properties/135-pines-bridge-road-katonah-ny-us-10536-key1006828">Giner Realty listing</a>
+      <a href="https://www.niche.com/k12/d/somers-central-school-district-ny/">Niche: Somers CSD</a>
+      <a href="https://www.usnews.com/education/best-high-schools/new-york/districts/somers-central-school-district/somers-senior-high-school-14082">US News: Somers HS</a>
+      <a href="https://censusreporter.org/profiles/06000US3611968308-somers-town-westchester-county-ny/">Census Reporter: Somers</a>
+      <a href="https://www.census.gov/quickfacts/fact/table/somerstownwestchestercountynewyork/PST045225">Census QuickFacts</a>
+      <a href="https://www.attomdata.com/news/market-trends/home-sales-prices/2025-annual-tax-report/">ATTOM 2025 tax report</a>
+      <a href="https://www.mta.info/document/194931">MTA 2026 fares</a>
+      <a href="https://www.neighborhoodscout.com/ny/somers/crime">NeighborhoodScout crime</a>
+      <a href="https://crimegrade.org/safest-places-in-somers-ny/">CrimeGrade</a>
+      <a href="https://www.somersny.gov/departments/police-department">Somers PD</a>
+      <a href="https://www.somersvfd.com/">Somers VFD</a>
+      <a href="https://nwh.northwell.edu/">Northern Westchester Hospital</a>
+      <a href="https://www.energysage.com/local-data/electricity-cost/ny/westchester-county/">EnergySage electric rates</a>
+      <a href="https://weatherspark.com/y/24805/Average-Weather-in-Katonah-New-York-United-States-Year-Round">WeatherSpark</a>
+      <a href="https://www.katonahvis.org/katonah-village-history/a-village-on-the-move/">Katonah VIS history</a>
+      <a href="https://en.wikipedia.org/wiki/Elephant_Hotel">Elephant Hotel NHL</a>
+      <a href="https://www.redfin.com/zipcode/10536/housing-market">Redfin 10536 market</a>
+      <a href="https://broadbandnow.com/New-York/Katonah">BroadbandNow: Katonah</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const brand={forest:'#2e4636',forestLt:'#4a6b55',brass:'#a8842c',brassLt:'#c9a955',muted:'#9aa196',line:'#e4ddce',ink:'#1c2420'};
+Chart.defaults.font.family='Inter';Chart.defaults.color='#4a5148';
+
+const geoLabels=['Somers','Katonah (hamlet)','Westchester Cty','New York State','US'];
+const geoColors=[brand.forest,brand.forestLt,'#c9c2b0','#c9c2b0','#c9c2b0'];
+
+/* Charts are built lazily as they scroll into view so their draw animation plays on arrival. */
+const chartFactories={
+  schoolChart:()=>new Chart(document.getElementById('schoolChart'),{type:'bar',data:{
+    labels:['Chappaqua (Greeley)','Byram Hills','Katonah-Lewisboro (John Jay)','Bedford (Fox Lane)','Yorktown','Somers Senior HS','Mahopac'],
+    datasets:[{label:'US News NY rank (lower = better)',data:[25,28,55,81,97,170,398],
+    backgroundColor:['#c9c2b0','#c9c2b0','#c9c2b0','#c9c2b0','#c9c2b0',brand.forest,'#c9c2b0'],borderRadius:3}]},
+    options:{indexAxis:'y',plugins:{legend:{display:false}},scales:{x:{grid:{color:brand.line}},y:{grid:{display:false}}}}}),
+
+  incomeChart:()=>new Chart(document.getElementById('incomeChart'),{type:'bar',data:{labels:geoLabels,
+    datasets:[{data:[169894,207083,118976,85974,80734],backgroundColor:geoColors,borderRadius:3}]},
+    options:{plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>'$'+c.parsed.y.toLocaleString()}}},
+    scales:{y:{ticks:{callback:v=>'$'+(v/1000)+'k'},grid:{color:brand.line}},x:{grid:{display:false}}}}}),
+
+  taxChart:()=>new Chart(document.getElementById('taxChart'),{type:'bar',data:{
+    labels:['This home','Westchester median','NY State avg','US avg'],
+    datasets:[{data:[1.45,1.63,1.6,0.95],backgroundColor:[brand.brass,'#c9c2b0','#c9c2b0','#c9c2b0'],borderRadius:3}]},
+    options:{plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.parsed.y+'% effective rate'}}},
+    scales:{y:{ticks:{callback:v=>v+'%'},grid:{color:brand.line}},x:{grid:{display:false}}}}}),
+
+  eduChart:()=>new Chart(document.getElementById('eduChart'),{type:'bar',data:{labels:geoLabels,
+    datasets:[{data:[66.9,76.6,53.1,40.2,35.7],backgroundColor:geoColors,borderRadius:3}]},
+    options:{plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.parsed.y+'%'}}},
+    scales:{y:{ticks:{callback:v=>v+'%'},max:80,grid:{color:brand.line}},x:{grid:{display:false}}}}}),
+
+  marketChart:()=>new Chart(document.getElementById('marketChart'),{type:'bar',data:{
+    labels:['This home (list)','ZIP 10536 median sale','Somers town median','Westchester median value'],
+    datasets:[{data:[1750000,1190000,650000,663200],backgroundColor:[brand.brass,brand.forest,'#c9c2b0','#c9c2b0'],borderRadius:3}]},
+    options:{plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>'$'+c.parsed.y.toLocaleString()}}},
+    scales:{y:{ticks:{callback:v=>'$'+(v/1000000).toFixed(1)+'M'},grid:{color:brand.line}},x:{grid:{display:false}}}}}),
+
+  raceChart:()=>new Chart(document.getElementById('raceChart'),{type:'doughnut',data:{
+    labels:['White (non-Hispanic) 78.7%','Hispanic/Latino 12.8%','Asian 4.0%','Black 2.1%','Other/Multi 2.4%'],
+    datasets:[{data:[78.7,12.8,4.0,2.1,2.4],backgroundColor:[brand.forest,brand.brass,brand.forestLt,brand.brassLt,'#c9c2b0'],borderWidth:2,borderColor:'#fff'}]},
+    options:{plugins:{legend:{position:'right',labels:{boxWidth:12,font:{size:12}}}},cutout:'62%'}}),
+
+  ageChart:()=>new Chart(document.getElementById('ageChart'),{type:'bar',data:{
+    labels:['Under 18','18–64','65 and over'],
+    datasets:[{data:[20.4,53.5,26.1],backgroundColor:[brand.brass,brand.forest,brand.forestLt],borderRadius:3}]},
+    options:{plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.parsed.y+'% of residents'}}},
+    scales:{y:{ticks:{callback:v=>v+'%'},grid:{color:brand.line}},x:{grid:{display:false}}}}}),
+
+  jobsChart:()=>new Chart(document.getElementById('jobsChart'),{type:'bar',data:{
+    labels:['Education','Healthcare','Professional / technical','Retail','Real estate','Manufacturing','Finance'],
+    datasets:[{data:[22.0,16.1,13.5,11.6,6.1,5.1,4.9],backgroundColor:brand.forest,borderRadius:3}]},
+    options:{indexAxis:'y',plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.parsed.x+'% of workforce'}}},
+    scales:{x:{ticks:{callback:v=>v+'%'},grid:{color:brand.line}},y:{grid:{display:false}}}}}),
+
+  crimeChart:()=>new Chart(document.getElementById('crimeChart'),{type:'bar',data:{
+    labels:['Somers (CrimeGrade)','Somers vs NY (NeighborhoodScout)','Somers vs US (NeighborhoodScout)'],
+    datasets:[{data:[97,90,85],backgroundColor:[brand.forest,brand.forestLt,brand.brass],borderRadius:3}]},
+    options:{indexAxis:'y',plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>'Safer than '+c.parsed.x+'% of communities'}}},
+    scales:{x:{max:100,ticks:{callback:v=>v+'%'},grid:{color:brand.line}},y:{grid:{display:false}}}}}),
+
+  elecChart:()=>new Chart(document.getElementById('elecChart'),{type:'bar',data:{
+    labels:['Westchester avg','NYSEG (this area)','US average'],
+    datasets:[{data:[31,29,18.8],backgroundColor:['#c9c2b0',brand.forest,brand.brass],borderRadius:3}]},
+    options:{plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.parsed.y+'¢/kWh'}}},
+    scales:{y:{ticks:{callback:v=>v+'¢'},grid:{color:brand.line}},x:{grid:{display:false}}}}}),
+
+  tempChart:()=>new Chart(document.getElementById('tempChart'),{type:'line',data:{
+    labels:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
+    datasets:[
+      {label:'Avg high',data:[36,39,47,60,70,79,83,81,74,62,51,41],borderColor:brand.brass,backgroundColor:'rgba(168,132,44,.08)',fill:'+1',tension:.35,pointRadius:0},
+      {label:'Avg low',data:[21,23,30,40,50,59,64,63,55,44,35,27],borderColor:brand.forest,tension:.35,pointRadius:0}]},
+    options:{plugins:{legend:{position:'bottom',labels:{boxWidth:12}}},scales:{y:{ticks:{callback:v=>v+'°'},grid:{color:brand.line}},x:{grid:{display:false}}}}}),
+
+  wxChart:()=>new Chart(document.getElementById('wxChart'),{type:'bar',data:{
+    labels:['Rainfall (in/yr)','Snowfall (in/yr)'],
+    datasets:[
+      {label:'Katonah / Somers',data:[51,38],backgroundColor:brand.forest,borderRadius:3},
+      {label:'US average',data:[38,28],backgroundColor:'#c9c2b0',borderRadius:3}]},
+    options:{plugins:{legend:{position:'bottom',labels:{boxWidth:12}}},scales:{y:{grid:{color:brand.line}},x:{grid:{display:false}}}}})
+};
+
+/* ===== Scroll motion engine ===== */
+(function(){
+  const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const supportsIO='IntersectionObserver' in window;
+
+  // Count-up: animate the numeric part of a stat, preserving prefix/suffix and formatting.
+  function countUp(el){
+    if(el.dataset.counted)return; el.dataset.counted='1';
+    const raw=el.textContent.trim();
+    const m=raw.match(/^(\D*?)([\d,]+(?:\.\d+)?)(.*)$/s);
+    if(!m)return;
+    const pre=m[1], numStr=m[2], suf=m[3];
+    const hasComma=numStr.includes(','), decimals=(numStr.split('.')[1]||'').length;
+    const target=parseFloat(numStr.replace(/,/g,''));
+    if(!isFinite(target))return;
+    const finalTxt=pre+(hasComma?target.toLocaleString('en-US'):(decimals?target.toFixed(decimals):String(target)))+suf;
+    if(reduce){el.textContent=finalTxt;return;}
+    const dur=1200, t0=performance.now();
+    const fmt=v=>{
+      let s=decimals?v.toFixed(decimals):Math.round(v).toString();
+      if(hasComma){const p=s.split('.');p[0]=Number(p[0]).toLocaleString('en-US');s=p.join('.');}
+      return pre+s+suf;
+    };
+    (function tick(now){
+      const t=Math.min((now-t0)/dur,1), e=1-Math.pow(1-t,4);
+      el.textContent=fmt(target*e);
+      if(t<1)requestAnimationFrame(tick); else el.textContent=finalTxt;
+    })(performance.now());
+  }
+
+  const blockSel='.wrap > .kicker,.wrap > h2,.wrap > h3,.wrap > p,.wrap > table,.wrap > .callout,.wrap > .caption,.wrap > .gallery-head,.wrap > .twocol';
+  const groups=[...document.querySelectorAll('.grid3,.facts,.gallery,.numrow,.chartrow,.checklist')];
+  groups.forEach(g=>[...g.children].forEach((c,i)=>c.style.setProperty('--i',i)));
+
+  if(!supportsIO){
+    document.querySelectorAll(blockSel).forEach(el=>el.classList.add('in'));
+    groups.forEach(g=>[...g.children].forEach(c=>c.classList.add('in')));
+    Object.keys(chartFactories).forEach(id=>document.getElementById(id)&&chartFactories[id]());
+    document.querySelectorAll('.bignum,.statbar .n').forEach(el=>el.children.length===0&&countUp(el));
+    document.querySelector('.hero')?.classList.add('in');
+    return;
+  }
+
+  const revealBlocks=new IntersectionObserver((es,o)=>es.forEach(e=>{
+    if(e.isIntersecting){e.target.classList.add('in');o.unobserve(e.target);}
+  }),{rootMargin:'0px 0px -8% 0px',threshold:0.05});
+  document.querySelectorAll(blockSel).forEach(el=>revealBlocks.observe(el));
+
+  const revealGroups=new IntersectionObserver((es,o)=>es.forEach(e=>{
+    if(e.isIntersecting){[...e.target.children].forEach(c=>c.classList.add('in'));o.unobserve(e.target);}
+  }),{rootMargin:'0px 0px -6% 0px',threshold:0.02});
+  groups.forEach(g=>revealGroups.observe(g));
+
+  const chartObs=new IntersectionObserver((es,o)=>es.forEach(e=>{
+    if(e.isIntersecting){const f=chartFactories[e.target.id];if(f)f();o.unobserve(e.target);}
+  }),{rootMargin:'0px 0px -5% 0px',threshold:0.05});
+  Object.keys(chartFactories).forEach(id=>{const c=document.getElementById(id);if(c)chartObs.observe(c);});
+
+  const countObs=new IntersectionObserver((es,o)=>es.forEach(e=>{
+    if(e.isIntersecting){countUp(e.target);o.unobserve(e.target);}
+  }),{threshold:0.5});
+  document.querySelectorAll('.bignum').forEach(el=>el.children.length===0&&countObs.observe(el));
+
+  // Hero: staged entrance on load + count its stat numbers.
+  const hero=document.querySelector('.hero');
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{
+    hero&&hero.classList.add('in');
+    setTimeout(()=>document.querySelectorAll('.statbar .n').forEach(el=>el.children.length===0&&countUp(el)),560);
+  }));
+
+  // Scroll-progress bar + hero parallax.
+  const bar=document.getElementById('scrollbar');
+  const media=document.querySelector('.hero-media');
+  let ticking=false;
+  function onScroll(){
+    ticking=false;
+    const y=window.scrollY||window.pageYOffset;
+    const max=document.documentElement.scrollHeight-window.innerHeight;
+    if(bar)bar.style.transform='scaleX('+(max>0?Math.min(y/max,1):0)+')';
+    if(media&&!reduce&&hero){const hh=hero.offsetHeight;if(y<hh)media.style.transform='translate3d(0,'+(y*0.25)+'px,0)';}
+  }
+  addEventListener('scroll',()=>{if(!ticking){ticking=true;requestAnimationFrame(onScroll);}},{passive:true});
+  onScroll();
+})();
+
+/* ===== Premium photo viewer ===== */
+(function(){
+  const figs=[...document.querySelectorAll('#gallery figure')];
+  if(!figs.length)return;
+  const photos=figs.map(f=>({src:f.dataset.full,cap:f.dataset.caption||''}));
+  const lb=document.getElementById('lb'),img=document.getElementById('lbImg'),
+        cap=document.getElementById('lbCap'),idx=document.getElementById('lbIdx'),
+        film=document.getElementById('lbFilm');
+  let i=0;
+
+  const thumbs=photos.map((p,n)=>{
+    const t=new Image();t.src=p.src;t.alt='';
+    t.addEventListener('click',()=>show(n));
+    film.appendChild(t);return t;
+  });
+
+  function show(n){
+    i=(n+photos.length)%photos.length;
+    img.classList.remove('ready');
+    const src=photos[i].src,pre=new Image();
+    pre.onload=()=>{img.src=src;img.classList.add('ready');};
+    pre.src=src;
+    cap.textContent=photos[i].cap;
+    idx.innerHTML='<b>'+(i+1)+'</b> / '+photos.length;
+    thumbs.forEach((t,k)=>t.classList.toggle('active',k===i));
+    thumbs[i].scrollIntoView({inline:'center',block:'nearest',behavior:'smooth'});
+  }
+  function open(n){show(n);lb.classList.add('open');lb.setAttribute('aria-hidden','false');document.body.style.overflow='hidden';}
+  function close(){lb.classList.remove('open');lb.setAttribute('aria-hidden','true');document.body.style.overflow='';}
+
+  figs.forEach((f,n)=>f.addEventListener('click',()=>open(n)));
+  document.getElementById('lbClose').addEventListener('click',close);
+  document.getElementById('lbPrev').addEventListener('click',()=>show(i-1));
+  document.getElementById('lbNext').addEventListener('click',()=>show(i+1));
+  lb.addEventListener('click',e=>{if(e.target===lb||e.target.classList.contains('lb-stage'))close();});
+  document.addEventListener('keydown',e=>{
+    if(!lb.classList.contains('open'))return;
+    if(e.key==='Escape')close();
+    else if(e.key==='ArrowRight')show(i+1);
+    else if(e.key==='ArrowLeft')show(i-1);
+  });
+})();
+</script>
+</body>
+</html>
